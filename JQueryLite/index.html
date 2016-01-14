@@ -11,7 +11,7 @@
 
     <main class="main-content">
       <ul>
-        <li>Apples</li>
+        <li class="group">Apples</li>
         <li>Orange</li>
         <li>Potato</li>
         <li>Beethoven</li>
@@ -21,8 +21,12 @@
     <script>
       var $lis = $l("li");
       var $firstLi = $l($lis.htmEls[0]);
-      console.log($firstLi);
-      $firstLi.append($lis);
+      $lis.attr("style", "color:red");
+      $lis.addClass("important");
+      $lis.addClass("stupid");
+      $lis.addClass("music art");
+
+      console.log($firstLi.attr("class"));
     </script>
   </body>
 </html>

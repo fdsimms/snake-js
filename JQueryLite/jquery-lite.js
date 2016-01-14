@@ -57,11 +57,32 @@
 
   };
 
-  DOMNodeCollection.prototype.attr = function () {
-
+  DOMNodeCollection.prototype.attr = function (attrName, val) {
+    if (arguments.length > 1) {
+      this.htmEls.forEach(function (htmEl) {
+        htmEl.setAttribute(attrName, val);
+      });
+    } else {
+      var attribute = this.htmEls[0].attributes.getNamedItem(attrName);
+      if (attribute !== null) {
+        return attribute.value;
+      }
+    }
   };
-  DOMNodeCollection.prototype.addClass = function () {
 
+  DOMNodeCollection.prototype.addClass = function (val) {
+    this.htmEls.forEach(function (htmEl) {
+      var oldVals = ($l(htmEl).attr("class"));
+      var content;
+
+      if (oldVals) {
+        content = val + " " + oldVals;
+      } else {
+        content = val;
+      }
+
+      htmEl.setAttribute("class", content);
+    });
   };
 
   DOMNodeCollection.prototype.removeClass = function () {
