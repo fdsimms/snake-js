@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQuery Rulz</title>
+    <script src="./jquery-lite.js"></script>
+  </head>
+  <body>
+
+    <h1>Test Page</h1>
+
+    <main class="main-content">
+      <ul>
+        <li>Apples</li>
+        <li>Orange</li>
+        <li>Potato</li>
+        <li>Beethoven</li>
+      </ul>
+    </main>
+
+    <script>
+      var $lis = $l("li");
+      var $firstLi = $l($lis.htmEls[0]);
+      console.log($firstLi);
+      $firstLi.append($lis);
+    </script>
+  </body>
+</html>
