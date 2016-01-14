@@ -6,6 +6,21 @@
     <script src="./jquery-lite.js"></script>
   </head>
   <body>
+    <script>
+    $l(function () {
+      $l.ajax({
+         type: 'GET',
+         url: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=2de143494c0b295cca9337e1e96b00e0",
+         success: function(data) {
+           console.log("We have your weather!")
+           console.log(data);
+         },
+         error: function() {
+           console.error("An error occured.");
+         },
+      });
+    })
+    </script>
 
     <h1>Test Page</h1>
 
@@ -18,15 +33,5 @@
       </ul>
     </main>
 
-    <script>
-      var $lis = $l("li");
-      var $firstLi = $l($lis.htmEls[0]);
-      $lis.attr("style", "color:red");
-      $lis.addClass("important");
-      $lis.addClass("stupid");
-      $lis.addClass("music art");
-
-      console.log($firstLi.attr("class"));
-    </script>
   </body>
 </html>
